@@ -1,8 +1,21 @@
-# React + Vite
+# Khan Exhibit
+# Painting and Drawing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Khan Exhibit, your go-to destination for exploring and appreciating the world of Painting and Drawing. 
 
-Currently, two official plugins are available:
+Visit our live site: [Khan Exhibit](https://www.khanexhibit.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Khan Exhibit
+Khan Exhibit is an online platform dedicated to showcasing the beauty and diversity of painting and drawing. Here, artists and enthusiasts alike can immerse themselves in a vibrant community centered around creativity and expression.
+
+## Features
+- **Inspiring Galleries**: Explore stunning galleries featuring a wide range of paintings and drawings, from traditional to contemporary styles.
+- **Artist Spotlight**: Discover talented artists and their captivating works, as we shine a spotlight on creativity and innovation.
+- **Interactive Workshops**: Engage in interactive workshops led by experienced artists, where you can learn new techniques and refine your skills.
+- **Artistic Resources**: Access a wealth of artistic resources including tutorials, tips, and tools to support your creative journey.
+- **Curated Collections**: Dive into curated collections curated by our team, showcasing themes, genres, and trends in the world of painting and drawing.
+
+## Get Involved
+Visit Khan Exhibit today to experience the beauty and power of painting and drawing. Whether you're an artist, collector, or enthusiast, there's something for everyone in our vibrant community.
+
+Start exploring now at [Khan Exhibit](https://www.khanexhibit.com)
