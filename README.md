@@ -1,5 +1,5 @@
 # Khan Exhibit
-# Painting and Drawing
+## Selected category # Painting and Drawing
 
 Welcome to Khan Exhibit, your go-to destination for exploring and appreciating the world of Painting and Drawing. 
 
