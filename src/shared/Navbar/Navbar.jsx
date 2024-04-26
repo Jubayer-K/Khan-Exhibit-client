@@ -32,7 +32,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar font-nunito z-10 backdrop-blur-xl bg-black/10 fixed">
+    <div className="navbar font-nunito z-10 backdrop-blur-xl bg-black/10 sticky top-0">
       <div className="navbar-start ">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
