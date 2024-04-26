@@ -37,14 +37,14 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div className="bg-[url('/image.jpg')] min-h-screen bg-cover bg-no-repeat flex items-center justify-center">
-            <h1 className=" text-black md:text-6xl text-4xl font-nunito max-w-screen-xl font-extrabold drop-shadow-2xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            <h1 className=" text-black md:text-6xl text-4xl font-nunito max-w-screen-xl font-extrabold [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
               Explore the World of Painting and Drawing
             </h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="bg-[url('/imageb.jpg')] min-h-screen bg-cover bg-no-repeat flex items-center justify-center">
-            <h1 className=" text-white text-center md:text-6xl text-4xl font-nunito max-w-screen-xl font-extrabold drop-shadow-2xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            <h1 className=" text-white text-center md:text-6xl text-4xl font-nunito max-w-screen-xl font-extrabold [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
               Discover the Joy of Artistry and Dive into Painting and Drawing with
               Our Expert Guidance
             </h1>
@@ -52,7 +52,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="bg-[url('/imagec.jpg')] min-h-screen bg-cover bg-no-repeat flex items-center justify-center">
-            <h1 className=" text-white md:text-6xl text-4xl text-end font-nunito max-w-screen-xl md:ml-60 font-extrabold drop-shadow-2xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+            <h1 className=" text-white md:text-6xl text-4xl text-end font-nunito max-w-screen-xl md:ml-60 font-extrabold [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
               Elevate Your Skills in Painting and Drawing with
               Our Inspirational Resources
             </h1>
