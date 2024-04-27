@@ -1,7 +1,7 @@
 const FindUs = () => {
   return (
     <div>
-      <div className="py-10 flex justify-center items-center bg-slate-100 font-nunito">
+      <div className="py-10 flex justify-center items-center font-nunito">
         <div className="flex-col lg:flex-row-reverse flex items-center w-full justify-evenly gap-10">
           <div>
             <img

@@ -60,7 +60,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <h1 className="text-5xl text-center bg-slate-100 p-4">
+      <h1 className="text-5xl text-center p-4">
         Art categories : &nbsp;
         <span className="text-gray-500">
           <Typewriter
