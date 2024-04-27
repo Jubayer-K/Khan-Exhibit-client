@@ -3,9 +3,10 @@ import Lottie from "lottie-react";
 
 import animation from "../../assets/artanimation.json";
 import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 
 const AddCraft = () => {
-  const handleAddCraft = e => {
+  const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.user_name.value;
@@ -21,23 +22,36 @@ const AddCraft = () => {
     const stock = form.stock_status.value;
 
     const newCraft = {
-      name,email,itemName,image,subcategoryName,description,price,rating,customization,time,stock
-    }
+      name,
+      email,
+      itemName,
+      image,
+      subcategoryName,
+      description,
+      price,
+      rating,
+      customization,
+      time,
+      stock,
+    };
     console.log(newCraft);
 
-    fetch('http://localhost:5000/craft',{
-      method :'POST',
-      headers :{
-        'content-type' : 'application/json'
+    fetch("http://localhost:5000/add-craft", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
       },
-      body:JSON.stringify(newCraft)
+      body: JSON.stringify(newCraft),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
-
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Item Added Successfully");
+        } else {
+          toast.success("Item Added Unsuccessful");
+        }
+      });
+  };
   return (
     <Fade direction="left">
       <Helmet>
@@ -199,7 +213,7 @@ const AddCraft = () => {
                 </select>
               </div>
 
-              <button 
+              <button
                 type="submit"
                 className="bg-gray-500 text-white btn glass rounded-3xl hover:bg-gray-800"
               >
@@ -209,10 +223,9 @@ const AddCraft = () => {
           </div>
         </div>
         <div className="w-full bg-[url('/addart.png')] lg:min-h-screen min-h-60 bg-contain bg-no-repeat bg-center">
-        <Lottie animationData={animation} loop={true}></Lottie>
+          <Lottie animationData={animation} loop={true}></Lottie>
         </div>
       </div>
-
     </Fade>
   );
 };
