@@ -46,11 +46,7 @@ const Footer = () => {
           <p>Phone: +1 (555) 123-4567</p>
           <p>Address: 123 Art Avenue, Creativity City, Craftland</p>
         </aside>
-      </footer>
-      <footer className="footer footer-center p-4 bg-slate-100 text-base-content">
-        <aside>
           <p>Copyright © 2024 - All right reserved by Khan Exhibition Ltd.</p>
-        </aside>
       </footer>
     </div>
   );

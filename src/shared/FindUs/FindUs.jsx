@@ -1,9 +1,14 @@
 const FindUs = () => {
   return (
     <div>
-      <div className="hero min-h-screen bg-slate-100 font-nunito">
-        <div className="hero-content flex-col lg:gap-80 lg:flex-row-reverse">
-          <img src="/find.png" className="lg:max-w-2xl rounded-lg shadow-2xl" />
+      <div className="py-10 flex justify-center items-center bg-slate-100 font-nunito">
+        <div className="flex-col lg:flex-row-reverse flex items-center w-full justify-evenly gap-10">
+          <div>
+            <img
+              src="/find.png"
+              className="lg:max-w-2xl rounded-lg shadow-2xl"
+            />
+          </div>
           <div>
             <h1 className="text-5xl font-bold">Find Us</h1>
             <p className="py-3">

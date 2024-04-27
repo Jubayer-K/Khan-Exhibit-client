@@ -86,7 +86,7 @@ const Navbar = () => {
 
         {user ? (
           <div
-            className="avatar p-4 tooltip tooltip-bottom"
+            className="avatar p-4 tooltip tooltip-left"
             data-tip={user.displayName}
           >
             <div className="md:w-12 w-8 rounded-full">
