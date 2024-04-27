@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllArt from "../pages/AllArt/AllArt";
 import AddCraft from "../pages/AddCraft/AddCraft";
 import MyArt from "../pages/MyArt/MyArt";
+import Update from "../pages/Upadate/Update";
 
 const routes = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
       {
         path: "/my-art",
         element: <PrivateRoutes><MyArt></MyArt></PrivateRoutes>,
+      },
+      {
+        path: "/update",
+        element: <PrivateRoutes><Update></Update></PrivateRoutes>,
       },
       
     ],

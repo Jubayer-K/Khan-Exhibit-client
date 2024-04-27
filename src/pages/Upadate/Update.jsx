@@ -1,80 +1,18 @@
 import { Fade } from "react-awesome-reveal";
 import Lottie from "lottie-react";
 
-import animation from "../../assets/artanimation.json";
-import { Helmet } from "react-helmet-async";
+import animation from "../../assets/updateanimation.json";
 
-const AddCraft = () => {
-  const handleAddCraft = e => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.user_name.value;
-    const email = form.user_email.value;
-    const itemName = form.item_name.value;
-    const image = form.image.value;
-    const subcategoryName = form.subcategory_name.value;
-    const description = form.short_description.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const customization = form.customization.value;
-    const time = form.processing_time.value;
-    const stock = form.stock_status.value;
-
-    const newCraft = {
-      name,email,itemName,image,subcategoryName,description,price,rating,customization,time,stock
-    }
-    console.log(newCraft);
-
-    fetch('http://localhost:5000/craft',{
-      method :'POST',
-      headers :{
-        'content-type' : 'application/json'
-      },
-      body:JSON.stringify(newCraft)
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
-
-  }
+const Update = () => {
   return (
     <Fade direction="left">
-      <Helmet>
-        <title>Khan Exhibit | Add Craft</title>
-      </Helmet>
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center font-nunito">
+      <div className="flex flex-col-reverse md:flex-row-reverse justify-between items-center font-nunito">
         <div className="w-full">
           <div className=" mx-auto p-10 font-nunito">
             <h1 className="md:text-5xl text-3xl font-semibold mb-6 text-center">
-              Add Craft Item
+              Update Item
             </h1>
-            <form className="md:max-w-lg mx-auto" onSubmit={handleAddCraft}>
-              <div className="mb-4">
-                <label htmlFor="user_name" className="block mb-2">
-                  User Name:
-                </label>
-                <input
-                  type="text"
-                  id="user_name"
-                  name="user_name"
-                  className="w-full px-3 py-2 border rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="user_email" className="block mb-2">
-                  User Email:
-                </label>
-                <input
-                  type="email"
-                  id="user_email"
-                  name="user_email"
-                  className="w-full px-3 py-2 border rounded-md"
-                  required
-                />
-              </div>
-
+            <form className="md:max-w-lg mx-auto">
               <div className="mb-4">
                 <label htmlFor="item_name" className="block mb-2">
                   Item Name:
@@ -199,11 +137,11 @@ const AddCraft = () => {
                 </select>
               </div>
 
-              <button 
+              <button
                 type="submit"
                 className="bg-gray-500 text-white btn glass rounded-3xl hover:bg-gray-800"
               >
-                Add Item
+                Update
               </button>
             </form>
           </div>
@@ -217,4 +155,4 @@ const AddCraft = () => {
   );
 };
 
-export default AddCraft;
+export default Update;

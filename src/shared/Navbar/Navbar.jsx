@@ -1,34 +1,53 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Providers/AuthProviders";
+import "./navbar.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const logOutToast = () => toast("User Logged out Successfully");
   const handleLogOut = () => {
     logOut()
-    .then(()=>{
-      logOutToast();
-    })
-    .catch();
+      .then(() => {
+        logOutToast();
+      })
+      .catch();
   };
 
   const navLinks = (
     <>
-      <li id="nav-link" className="btn bg-transparent border-none rounded-3xl hover:bg-transparent hover:text-white">
-        <NavLink to={"/"}>Home</NavLink>
-      </li>
-      <li id="nav-link" className="btn bg-transparent border-none rounded-3xl hover:bg-transparent hover:text-white">
-        <NavLink to={"/all-art"}> All Art & craft Items</NavLink>
-      </li>
-      <li id="nav-link" className="btn bg-transparent border-none rounded-3xl hover:bg-transparent hover:text-white">
-        <NavLink to={"/add-craft"}>Add Craft Item</NavLink>
-      </li>
-      <li id="nav-link" className="btn bg-transparent border-none rounded-3xl hover:bg-transparent hover:text-white">
-        <NavLink to={"/my-art"}>My Art&Craft List</NavLink>
-      </li>
+      <NavLink to="/" >
+        <li id="nav-link" className="btn bg-transparent shadow-none border-none rounded-3xl hover:bg-transparent hover:text-white">
+          Home
+        </li>
+      </NavLink>
+
+      <NavLink to={"/all-art"}>
+        <li
+          id="nav-link"
+          className="btn bg-transparent border-none shadow-none rounded-3xl hover:bg-transparent hover:text-white"
+        >
+          All Art & craft Items
+        </li>
+      </NavLink>
+      <NavLink to={"/add-craft"}>
+        <li
+          id="nav-link"
+          className="btn bg-transparent border-none shadow-none rounded-3xl hover:bg-transparent hover:text-white"
+        >
+          Add Craft Item
+        </li>
+      </NavLink>
+      <NavLink to={"/my-art"}>
+        <li
+          id="nav-link"
+          className="btn bg-transparent border-none shadow-none rounded-3xl hover:bg-transparent hover:text-white"
+        >
+          My Art&Craft List
+        </li>
+      </NavLink>
     </>
   );
   return (
@@ -59,7 +78,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"}>
-            <img className="w-40 hover:invert" src="/navlogo.png" alt="" />
+          <img className="w-40 hover:invert" src="/navlogo.png" alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -102,7 +121,6 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-      
     </div>
   );
 };
