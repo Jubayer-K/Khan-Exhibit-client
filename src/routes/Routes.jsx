@@ -40,10 +40,12 @@ const routes = createBrowserRouter([
       {
         path: "/my-art",
         element: <PrivateRoutes><MyArt></MyArt></PrivateRoutes>,
+        loader : () => fetch('http://localhost:5000/add-craft')
       },
       {
-        path: "/update",
+        path: "my-art/update/:id",
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
       },
       
     ],

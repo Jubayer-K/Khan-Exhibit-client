@@ -2,15 +2,32 @@ import { Fade } from "react-awesome-reveal";
 import Lottie from "lottie-react";
 
 import animation from "../../assets/updateanimation.json";
+import { useLoaderData } from "react-router-dom";
 
 const Update = () => {
+
+  const craft = useLoaderData();
+
+  const {
+    _id,
+    itemName,
+    image,
+    subcategoryName,
+    description,
+    price,
+    rating,
+    customization,
+    time,
+    stock,
+  } = craft;
+
   return (
     <Fade direction="left">
       <div className="flex flex-col-reverse md:flex-row-reverse justify-between items-center font-nunito">
         <div className="w-full">
           <div className=" mx-auto p-10 font-nunito">
             <h1 className="md:text-5xl text-3xl font-semibold mb-6 text-center">
-              Update Item
+              Update Item : {itemName}
             </h1>
             <form className="md:max-w-lg mx-auto">
               <div className="mb-4">
@@ -18,6 +35,7 @@ const Update = () => {
                   Item Name:
                 </label>
                 <input
+                defaultValue={itemName}
                   type="text"
                   id="item_name"
                   name="item_name"
@@ -30,6 +48,7 @@ const Update = () => {
                   Image URL:
                 </label>
                 <input
+                defaultValue={image}
                   type="text"
                   id="image"
                   name="image"
@@ -42,6 +61,7 @@ const Update = () => {
                   Subcategory Name:
                 </label>
                 <select
+                defaultValue={subcategoryName}
                   id="subcategory_name"
                   name="subcategory_name"
                   className="w-full px-3 py-2 border rounded-md"
@@ -63,6 +83,7 @@ const Update = () => {
                   Short Description:
                 </label>
                 <textarea
+                defaultValue={description}
                   id="short_description"
                   name="short_description"
                   rows="3"
@@ -75,6 +96,7 @@ const Update = () => {
                   Price:
                 </label>
                 <input
+                defaultValue={price}
                   type="text"
                   id="price"
                   name="price"
@@ -87,6 +109,7 @@ const Update = () => {
                   Rating:
                 </label>
                 <input
+                defaultValue={rating}
                   type="number"
                   id="rating"
                   name="rating"
@@ -99,6 +122,7 @@ const Update = () => {
                   Customization (yes/no):
                 </label>
                 <select
+                defaultValue={customization}
                   id="customization"
                   name="customization"
                   className="w-full px-3 py-2 border rounded-md"
@@ -114,6 +138,7 @@ const Update = () => {
                   Processing Time:
                 </label>
                 <input
+                defaultValue={time}
                   type="text"
                   id="processing_time"
                   name="processing_time"
@@ -126,6 +151,7 @@ const Update = () => {
                   Stock Status:
                 </label>
                 <select
+                defaultValue={stock}
                   id="stock_status"
                   name="stock_status"
                   className="w-full px-3 py-2 border rounded-md"
@@ -146,7 +172,7 @@ const Update = () => {
             </form>
           </div>
         </div>
-        <div className="w-full bg-[url('/addart.png')] lg:min-h-screen min-h-60 bg-contain bg-no-repeat bg-center">
+        <div className="w-full lg:min-h-screen min-h-60 bg-cover bg-no-repeat bg-center"style={{ backgroundImage: `url('${image}')` }}>
         <Lottie animationData={animation} loop={true}></Lottie>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
-const ArtItems = ({ craft }) => {
+const MyArtItems = ({ craft }) => {
   const {
     _id,
     itemName,
@@ -14,6 +15,34 @@ const ArtItems = ({ craft }) => {
     time,
     stock,
   } = craft;
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#707684",
+      confirmButtonText: "Confirm",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/add-craft/${id}`,{
+            method : 'DELETE'
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deleteCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Item has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="card card-compact bg-base-100 hover:border-gray-400 hover:scale-105 hover:shadow-lg transition-transform">
@@ -39,11 +68,11 @@ const ArtItems = ({ craft }) => {
           <h2 className="card-title">{itemName}</h2>
           <div className="items-center gap-4">
             <span className="flex flex-col text-base text-orange-600">
-            {customization}
+              {customization}
             </span>
           </div>
           <p className="font-medium text-base text-[#131313CC]">
-          Subcategory : {subcategoryName}
+            Subcategory : {subcategoryName}
           </p>
           <p className="font-medium text-base text-[#131313CC]">
             Rating : {rating}
@@ -66,13 +95,26 @@ const ArtItems = ({ craft }) => {
           {" "}
           View Details
         </Link>
+        <div className="flex items-center justify-center gap-2">
+          <Link to={`update/${_id}`}>
+          <button className="btn glass bg-gray-500 hover:bg-gray-800 hover:text-white">
+            Update
+          </button>
+          </Link>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn glass bg-red-500 hover:bg-red-800 hover:text-white"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-ArtItems.propTypes = {
+MyArtItems.propTypes = {
   craft: PropTypes.object,
 };
 
-export default ArtItems;
+export default MyArtItems;
