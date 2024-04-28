@@ -64,6 +64,11 @@ const routes = createBrowserRouter([
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
         loader : ({params}) => fetch(`http://localhost:5000/subcategory/${params.id}`)
       }, 
+      {
+        path: "/subcategory/details/:subcategoryName",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/subcategory/${params.subcategoryName}`)
+      }, 
     ],
   },
 ]);

@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Typewriter } from "react-simple-typewriter";
 
 // Import Swiper styles
 import "swiper/css";
@@ -60,27 +59,6 @@ const Banner = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <h1 className="text-5xl text-center p-4">
-        Art categories : &nbsp;
-        <span className="text-gray-500">
-          <Typewriter
-            words={[
-              "Landscape Painting",
-              " Portrait Drawing",
-              " Watercolor Painting",
-              "Oil Painting",
-              "Charcoal Sketching",
-              "Cartoon Drawing",
-            ]}
-            loop={5}
-            cursor
-            cursorStyle="_"
-            typeSpeed={50}
-            deleteSpeed={30}
-            delaySpeed={1000}
-          />
-        </span>
-      </h1>
     </div>
   );
 };
