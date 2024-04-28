@@ -3,11 +3,11 @@ import Lottie from "lottie-react";
 
 import animation from "../../assets/updateanimation.json";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
 
   const craft = useLoaderData();
-
   const {
     _id,
     itemName,
@@ -21,6 +21,51 @@ const Update = () => {
     stock,
   } = craft;
 
+  const handleUpdateCraft = e => {
+    e.preventDefault();
+    const form = e.target;
+    const itemName = form.item_name.value;
+    const image = form.image.value;
+    const subcategoryName = form.subcategory_name.value;
+    const description = form.short_description.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const customization = form.customization.value;
+    const time = form.processing_time.value;
+    const stock = form.stock_status.value;
+
+    const updatedCraft = {
+      itemName,
+      image,
+      subcategoryName,
+      description,
+      price,
+      rating,
+      customization,
+      time,
+      stock,
+    };
+    console.log(updatedCraft);
+
+    fetch(`http://localhost:5000/add-craft/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedCraft),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Item Updated Successfully");
+        } else {
+          toast.success("Item Update Unsuccessful");
+        }
+      });
+  };
+
+
+
   return (
     <Fade direction="left">
       <div className="flex flex-col-reverse md:flex-row-reverse justify-between items-center font-nunito">
@@ -29,13 +74,13 @@ const Update = () => {
             <h1 className="md:text-5xl text-3xl font-semibold mb-6 text-center">
               Update Item : {itemName}
             </h1>
-            <form className="md:max-w-lg mx-auto">
+            <form className="md:max-w-lg mx-auto" onSubmit={handleUpdateCraft}>
               <div className="mb-4">
                 <label htmlFor="item_name" className="block mb-2">
                   Item Name:
                 </label>
                 <input
-                defaultValue={itemName}
+                  defaultValue={itemName}
                   type="text"
                   id="item_name"
                   name="item_name"
@@ -48,7 +93,7 @@ const Update = () => {
                   Image URL:
                 </label>
                 <input
-                defaultValue={image}
+                  defaultValue={image}
                   type="text"
                   id="image"
                   name="image"
@@ -61,7 +106,7 @@ const Update = () => {
                   Subcategory Name:
                 </label>
                 <select
-                defaultValue={subcategoryName}
+                  defaultValue={subcategoryName}
                   id="subcategory_name"
                   name="subcategory_name"
                   className="w-full px-3 py-2 border rounded-md"
@@ -83,7 +128,7 @@ const Update = () => {
                   Short Description:
                 </label>
                 <textarea
-                defaultValue={description}
+                  defaultValue={description}
                   id="short_description"
                   name="short_description"
                   rows="3"
@@ -96,7 +141,7 @@ const Update = () => {
                   Price:
                 </label>
                 <input
-                defaultValue={price}
+                  defaultValue={price}
                   type="text"
                   id="price"
                   name="price"
@@ -109,7 +154,7 @@ const Update = () => {
                   Rating:
                 </label>
                 <input
-                defaultValue={rating}
+                  defaultValue={rating}
                   type="number"
                   id="rating"
                   name="rating"
@@ -122,7 +167,7 @@ const Update = () => {
                   Customization (yes/no):
                 </label>
                 <select
-                defaultValue={customization}
+                  defaultValue={customization}
                   id="customization"
                   name="customization"
                   className="w-full px-3 py-2 border rounded-md"
@@ -138,7 +183,7 @@ const Update = () => {
                   Processing Time:
                 </label>
                 <input
-                defaultValue={time}
+                  defaultValue={time}
                   type="text"
                   id="processing_time"
                   name="processing_time"
@@ -151,7 +196,7 @@ const Update = () => {
                   Stock Status:
                 </label>
                 <select
-                defaultValue={stock}
+                  defaultValue={stock}
                   id="stock_status"
                   name="stock_status"
                   className="w-full px-3 py-2 border rounded-md"
@@ -172,11 +217,13 @@ const Update = () => {
             </form>
           </div>
         </div>
-        <div className="w-full lg:min-h-screen min-h-60 bg-cover bg-no-repeat bg-center"style={{ backgroundImage: `url('${image}')` }}>
-        <Lottie animationData={animation} loop={true}></Lottie>
+        <div
+          className="w-full lg:min-h-screen min-h-60 bg-cover bg-no-repeat bg-center"
+          style={{ backgroundImage: `url('${image}')` }}
+        >
+          <Lottie animationData={animation} loop={false}></Lottie>
         </div>
       </div>
-
     </Fade>
   );
 };

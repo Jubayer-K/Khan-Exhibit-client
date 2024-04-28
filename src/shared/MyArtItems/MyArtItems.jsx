@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 
-const MyArtItems = ({ craft }) => {
+const MyArtItems = ({ craft,crafts,setCrafts }) => {
   const {
     _id,
     itemName,
@@ -16,7 +16,7 @@ const MyArtItems = ({ craft }) => {
     stock,
   } = craft;
 
-  const handleDelete = (id) => {
+  const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -27,7 +27,7 @@ const MyArtItems = ({ craft }) => {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/add-craft/${id}`,{
+        fetch(`http://localhost:5000/add-craft/${_id}`,{
             method : 'DELETE'
         })
           .then((res) => res.json())
@@ -39,6 +39,8 @@ const MyArtItems = ({ craft }) => {
                 icon: "success",
               });
             }
+            const remaining = crafts.filter(craft => craft._id !== _id)
+            setCrafts(remaining);
           });
       }
     });
@@ -115,6 +117,8 @@ const MyArtItems = ({ craft }) => {
 
 MyArtItems.propTypes = {
   craft: PropTypes.object,
+  crafts: PropTypes.object,
+  setCrafts: PropTypes.object,
 };
 
 export default MyArtItems;
