@@ -120,7 +120,7 @@ const Update = () => {
                   </option>
                   <option value="Oil Painting">Oil Painting</option>
                   <option value="Charcoal Sketching"> Portrait Drawing</option>
-                  <option value="Cartoon Drawing"> Portrait Drawing</option>
+                  <option value="Cartoon Drawing"> Cartoon Drawing</option>
                 </select>
               </div>
               <div className="mb-4">

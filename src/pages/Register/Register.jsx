@@ -5,6 +5,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import animation from "../../assets/registeranimation.json";
+import animationb from "../../assets/canvas.json";
 
 const Register = () => {
   const successToast = () => toast.success("User created Successfully");
@@ -14,13 +17,15 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { createUser } = useContext(AuthContext);
+
   const handleRegister = (e) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const email = form.get("email");
-    const password = form.get("password");
-    const photoURL = form.get("photoURL");
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoURL = form.photoURL.value;
+    console.log(name, email, password);
     setRegisterError("");
     setSuccess("");
     if (password.length < 6) {
@@ -43,50 +48,74 @@ const Register = () => {
         setRegisterError(error.message);
         errorToast("User creation Unsuccessful !");
       });
+
+    // createUser(email, password, name)
+    //   .then( result => {
+    //     console.log(result.user);
+    //     const user ={email};
+    //     fetch('http://localhost:5000/user',{
+    //       method:'POST',
+    //       headers:{
+    //         'content-type':'application/json'
+    //       },
+    //       body:JSON.stringify(user)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data =>{
+    //       console.log(data);
+    //     })
+    //     setSuccess("User created Successfully");
+    //     successToast();
+    //   })
+    //   .catch((error) => {
+    //     setRegisterError(error.message);
+    //     errorToast("User creation Unsuccessful !");
+    //   });
   };
   return (
-    <div className="min-h-screen flex justify-center items-center bg-slate-200 max-w-screen-xl mx-auto rounded-3xl animate__animated animate__zoomInDown">
+    <div className=" flex flex-col lg:flex-row justify-center items-center mx-auto">
       <Helmet>
-        <title>Khan Estate | Register</title>
+        <title>Khan Exhibit | Register</title>
       </Helmet>
-      <div className="bg-white p-8 rounded-lg shadow-md md:w-2/3 w-96">
+      <div className="w-full bg-[url('/register.jpg')] lg:min-h-screen min-h-60 bg-contain bg-no-repeat bg-center flex flex-col justify-center items-center">
+          <Lottie className="lg:w-96 w-32" animationData={animationb} loop={true}></Lottie>
+        </div>
+      <div className="bg-white p-8 rounded-lg shadow-md md:w-2/3 w-96 mx-auto">
+        <div className="min-h-60 bg-contain bg-no-repeat bg-center flex flex-col justify-center items-center text-center">
         <h2 className="text-2xl font-semibold mb-4">Create an Account</h2>
-        <form onSubmit={handleRegister}>
+          <Lottie
+            className="lg:w-96 w-32"
+            animationData={animation}
+            loop={true}
+          ></Lottie>
+        </div>
+        <form className="md:max-w-lg mx-auto" onSubmit={handleRegister}>
           <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
+            <label htmlFor="name" className="block mb-2">
+              Name:
             </label>
             <input
-              required
               type="text"
               id="name"
               name="name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              className="w-full px-3 py-2 border rounded-md"
+              required
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email Address
+            <label htmlFor="email" className="block mb-2">
+              Email
             </label>
             <input
-              required
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              className="w-full px-3 py-2 border rounded-md"
+              required
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="photoURL"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="photoURL" className="block mb-2">
               Photo URL
             </label>
             <input
@@ -94,25 +123,21 @@ const Register = () => {
               type="text"
               id="photoURL"
               name="photoURL"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              className="w-full px-3 py-2 border rounded-md"
             />
           </div>
           <div className="mb-4 relative">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="password" className="block mb-2">
               Password
             </label>
             <input
-              required
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              className="w-full px-3 py-2 border rounded-md"
             />
             <span
-              className="cursor-pointer text-2xl absolute right-5 bottom-0 "
+              className="cursor-pointer text-2xl absolute right-5 bottom-2 "
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
@@ -124,7 +149,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-orange-600 hover:bg-orange-800 text-white py-2 px-4 rounded-md "
+            className="bg-gray-500 text-white btn glass rounded-3xl hover:bg-gray-800"
           >
             Register
           </button>
@@ -135,7 +160,7 @@ const Register = () => {
         {success && <p className="my-2 text-sm text-green-700">{success}</p>}
         <p className="mt-4 text-sm text-gray-600">
           Already have an account?{" "}
-          <Link to={"/login"} className="text-orange-500 hover:underline">
+          <Link to={"/login"} className="text-gray-800 hover:underline">
             Login
           </Link>
         </p>

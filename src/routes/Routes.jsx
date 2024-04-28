@@ -9,6 +9,7 @@ import AllArt from "../pages/AllArt/AllArt";
 import AddCraft from "../pages/AddCraft/AddCraft";
 import MyArt from "../pages/MyArt/MyArt";
 import Update from "../pages/Upadate/Update";
+import Details from "../pages/Details/Details";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader : () => fetch('http://localhost:5000/subcategory')
       },
       {
         path: "/login",
@@ -47,7 +49,21 @@ const routes = createBrowserRouter([
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
         loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
       },
-      
+      {
+        path: "/all-art/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/my-art/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      }, 
+      {
+        path: "/subcategory/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/subcategory/${params.id}`)
+      }, 
     ],
   },
 ]);

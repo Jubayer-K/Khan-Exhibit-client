@@ -1,20 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
+import { MdDeleteSweep ,MdBrowserUpdated } from "react-icons/md";
 
-const MyArtItems = ({ craft,crafts,setCrafts }) => {
-  const {
-    _id,
-    itemName,
-    image,
-    subcategoryName,
-    description,
-    price,
-    rating,
-    customization,
-    time,
-    stock,
-  } = craft;
+const MyArtItems = ({ craft, crafts, setCrafts }) => {
+  const { _id, itemName, image, price, rating, customization, stock } = craft;
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -27,8 +17,8 @@ const MyArtItems = ({ craft,crafts,setCrafts }) => {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/add-craft/${_id}`,{
-            method : 'DELETE'
+        fetch(`http://localhost:5000/add-craft/${_id}`, {
+          method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
@@ -39,7 +29,7 @@ const MyArtItems = ({ craft,crafts,setCrafts }) => {
                 icon: "success",
               });
             }
-            const remaining = crafts.filter(craft => craft._id !== _id)
+            const remaining = crafts.filter((craft) => craft._id !== _id);
             setCrafts(remaining);
           });
       }
@@ -47,68 +37,49 @@ const MyArtItems = ({ craft,crafts,setCrafts }) => {
   };
   return (
     <div>
-      <div className="card card-compact bg-base-100 hover:border-gray-400 hover:scale-105 hover:shadow-lg transition-transform">
-        <div className="m-6 border rounded-2xl">
-          <figure className="relative">
-            <img
-              className="max-w-80 max-h-52 rounded-2xl "
-              src={image}
-              alt="estate image"
-            />
-            <div className=" absolute rounded-xl text-slate-200 bg-orange-600 p-2 text-sm font-bold flex items-center gap-1 m-2">
-              <span></span> Stock : {stock}
-            </div>
-          </figure>
-        </div>
 
-        <div
-          className="card-body "
-          data-aos="fade-up"
-          data-aos-duration="400"
-          data-aos-delay="100"
-        >
-          <h2 className="card-title">{itemName}</h2>
-          <div className="items-center gap-4">
-            <span className="flex flex-col text-base text-orange-600">
-              {customization}
+      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+        <a href="#">
+          <img className="p-8 rounded-t-lg" src={image} alt="product image" />
+        </a>
+        <div className="px-5 pb-5">
+          <a href="#">
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
+              {itemName}
+            </h5>
+          </a>
+          <div className="flex items-center justify-between mt-2.5 mb-5">
+            <span>Customization : {customization}</span>
+            <span className="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-0.5 rounded ms-3">
+              Rating : {rating}
             </span>
           </div>
-          <p className="font-medium text-base text-[#131313CC]">
-            Subcategory : {subcategoryName}
-          </p>
-          <p className="font-medium text-base text-[#131313CC]">
-            Rating : {rating}
-          </p>
-          <hr className="border-dashed" />
-          <h3 className="flex justify-between font-medium text-base text-[#131313CC]">
-            <span>{time}</span>
-            <span className="flex items-center gap-2 text-green-600 text-2xl">
-              {price}
-            </span>
-          </h3>
-        </div>
-        <p className="font-medium text-sm text-gray-500 p-2 text-center">
-          {description}
-        </p>
-        <Link
-          to={`/craft/${_id}`}
-          className="btn glass bg-gray-500 hover:bg-gray-800 hover:text-white m-2"
-        >
-          {" "}
-          View Details
-        </Link>
-        <div className="flex items-center justify-center gap-2">
+          <h4 className="font-semibold text-gray-500">
+            Stock : <span className="font-bold text-gray-800">{stock}</span> 
+          </h4>
+          <div className="flex items-center justify-between">
+            <span className="text-3xl font-bold text-green-700 ">${price}</span>
+            <Link
+              to={`details/${_id}`}
+              className="btn glass bg-gray-500 hover:bg-gray-800 hover:text-white m-2"
+            >
+              {" "}
+              View Details
+            </Link>
+          </div>
+          <div className="flex items-center justify-around gap-2">
           <Link to={`update/${_id}`}>
-          <button className="btn glass bg-gray-500 hover:bg-gray-800 hover:text-white">
-            Update
-          </button>
+            <button className="btn btn-circle bg-gray-500 hover:bg-gray-800 hover:text-white">
+              <MdBrowserUpdated></MdBrowserUpdated>
+            </button>
           </Link>
           <button
             onClick={() => handleDelete(_id)}
-            className="btn glass bg-red-500 hover:bg-red-800 hover:text-white"
+            className="btn btn-circle glass bg-red-600 hover:bg-red-800 hover:text-white"
           >
-            Delete
+          <MdDeleteSweep></MdDeleteSweep>
           </button>
+        </div>
         </div>
       </div>
     </div>

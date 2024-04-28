@@ -4,8 +4,11 @@ import Lottie from "lottie-react";
 import animation from "../../assets/artanimation.json";
 import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { useContext } from "react";
 
 const AddCraft = () => {
+  const { user } = useContext(AuthContext);
   const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +23,7 @@ const AddCraft = () => {
     const customization = form.customization.value;
     const time = form.processing_time.value;
     const stock = form.stock_status.value;
+    const userEmail = user.email;
 
     const newCraft = {
       name,
@@ -33,8 +37,8 @@ const AddCraft = () => {
       customization,
       time,
       stock,
+      userEmail
     };
-    console.log(newCraft);
 
     fetch("http://localhost:5000/add-craft", {
       method: "POST",
@@ -131,7 +135,7 @@ const AddCraft = () => {
                   </option>
                   <option value="Oil Painting">Oil Painting</option>
                   <option value="Charcoal Sketching"> Portrait Drawing</option>
-                  <option value="Cartoon Drawing"> Portrait Drawing</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing</option>
                 </select>
               </div>
               <div className="mb-4">

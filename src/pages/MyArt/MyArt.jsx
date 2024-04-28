@@ -23,7 +23,7 @@ const MyArt = () => {
         families and individuals alike.
       </p>
       <hr />
-      <div className="grid lg:grid-cols-3 gap-6 p-6">
+      <div className="grid lg:grid-cols-5 gap-6 p-6">
         {crafts.map((craft) => (
           <MyArtItems
             key={craft._id}
