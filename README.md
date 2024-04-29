@@ -6,7 +6,7 @@
 
 Welcome to Khan Exhibit, your go-to destination for exploring and appreciating the world of Painting and Drawing. 
 
-Visit live site: [Khan Exhibit](https://tenth-assignment-khan-exhibit-client.web.app)
+Visit live site: [Khan Exhibit](https://tenth-assignment-khan-exhibit.web.app)
 
 ## About Khan Exhibit
 Khan Exhibit is an online platform dedicated to showcasing the beauty and diversity of painting and drawing. Here, artists and enthusiasts alike can immerse themselves in a vibrant community centered around creativity and expression.

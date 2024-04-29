@@ -58,7 +58,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/filter-category/:id",
-        element: <PrivateRoutes><FilterCategory></FilterCategory></PrivateRoutes>,
+        element: <FilterCategory></FilterCategory>,
         loader:({ params }) =>  fetch(`https://khan-exhibit-server.vercel.app/crafts-by-category?category=${encodeURIComponent(params.id)}`)
       },
       {
