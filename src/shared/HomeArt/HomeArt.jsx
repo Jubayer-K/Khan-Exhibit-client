@@ -6,13 +6,13 @@ const HomeArt = ({ craft }) => {
   return (
     <Fade direction="down">
       <div>
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-500 dark:text-white">
         <div
             style={{ backgroundImage: `url('${image}')` }}
             className="h-64 w-full rounded-lg bg-cover bg-center"
           ></div>
           <div className="px-5 my-4 pb-5">
-            <h5 className="text-xl font-semibold text-gray-900 ">
+            <h5 className="text-xl font-semibold text-gray-900 dark:text-white">
               {itemName}
             </h5>
             <div className="flex items-center justify-between mt-2.5 mb-5">
@@ -21,7 +21,7 @@ const HomeArt = ({ craft }) => {
                 Rating : {rating}
               </span>
             </div>
-            <h4 className="font-semibold text-gray-500">
+            <h4 className="font-semibold text-gray-500 dark:text-white">
               Stock : <span className="font-bold text-gray-800">{stock}</span>
             </h4>
             <div className="flex items-center justify-between">

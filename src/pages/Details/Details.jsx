@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 const Details = () => {
   const craft = useLoaderData();
   const {
+    email,
     itemName,
     image,
     subcategoryName,
@@ -36,6 +37,7 @@ const Details = () => {
               Processing Time: {time}
             </p>
             <p className="text-gray-800 text-lg mb-4">Stock: {stock}</p>
+            <p className="text-gray-800 text-lg mb-4">Published By : {email}</p>
             <div className="flex gap-5">
               <button className="btn glass bg-gray-500 hover:bg-gray-800 hover:text-white">Buy Now</button>
               <button className="btn glass bg-blue-950 text-white hover:text-black">Add to Cart</button>

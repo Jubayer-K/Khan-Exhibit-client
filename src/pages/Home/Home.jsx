@@ -11,7 +11,7 @@ const Home = () => {
   const { subcategoryData, addCraftData } = useLoaderData();
 
   return (
-    <div>
+    <div className="dark:bg-gray-800 dark:text-white">
       <Helmet>
         <title>Khan Exhibit | Home</title>
       </Helmet>

@@ -18,7 +18,7 @@ const FilterCategory = () => {
     : [];
 
   return (
-    <div>
+    <div className="dark:bg-gray-800 dark:text-white">
       <div>
         <h2 className="text-center md:text-5xl text-3xl my-6">
           Crafts in Category : <span className="font-bold">{slicedSubcategory}</span>

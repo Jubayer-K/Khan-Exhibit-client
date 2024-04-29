@@ -6,11 +6,11 @@ const AllArt = () => {
   const crafts = useLoaderData();
 
   return (
-    <div className="font-nunito md:m-14 my-10">
+    <div className="font-nunito md:m-14 my-10 ">
       <Helmet>
         <title>Khan Exhibit | All Art & Craft</title>
       </Helmet>
-      <h1 className="text-center md:text-5xl text-3xl font-bold my-4">
+      <h1 className="text-center md:text-5xl text-3xl font-bold my-4 ">
         All Art & Craft Items : {crafts.length}
       </h1>
       <p className="text-center mb-9 font-poppins">
@@ -21,7 +21,7 @@ const AllArt = () => {
       </p>
       <hr />
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table dark:bg-gray-800 dark:text-white">
           {/* head */}
           <thead className="text-3xl">
             <tr>

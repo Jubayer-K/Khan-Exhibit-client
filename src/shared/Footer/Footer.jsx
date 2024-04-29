@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center p-10 bg-slate-100 text-base-content rounded font-nunito">
-        <img src="/footer.png" alt="" />
+      <footer className="footer footer-center p-10 bg-slate-100 text-base-content rounded font-nunito dark:bg-gray-800 dark:text-white">
+        <img className="dark:invert" src="/footer.png" alt="" />
         <nav>
           <div className="grid grid-flow-col gap-4">
             <a>

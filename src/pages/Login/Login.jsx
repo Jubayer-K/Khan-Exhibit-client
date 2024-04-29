@@ -93,10 +93,10 @@ const Login = () => {
       <Helmet>
         <title>Khan Exhibit | Register</title>
       </Helmet>
-      <div className="w-full bg-[url('/register.jpg')] lg:min-h-screen min-h-60 bg-contain bg-no-repeat bg-center flex flex-col justify-center items-center">
-          <Lottie className="lg:w-96 w-32" animationData={animationb} loop={true}></Lottie>
+      <div className="w-full dark:invert bg-[url('/register.jpg')] lg:min-h-screen min-h-60 bg-contain bg-no-repeat bg-center flex flex-col justify-center items-center">
+          <Lottie className="lg:w-96 w-32 " animationData={animationb} loop={true}></Lottie>
         </div>
-      <div className="bg-white p-8 rounded-lg shadow-md md:w-2/3 w-96 mx-auto">
+      <div className="bg-white dark:bg-gray-400 p-8 rounded-lg shadow-md md:w-2/3 w-96 mx-auto">
         <div className="min-h-60 bg-contain bg-no-repeat bg-center flex flex-col justify-center items-center text-center">
         <h2 className="text-2xl font-semibold mb-4">Log In</h2>
           <Lottie

@@ -54,7 +54,7 @@ const MyArt = () => {
           id="customization"
           value={selectedCustomization}
           onChange={handleCustomizationChange}
-          className="ml-2 p-2 border border-gray-300 rounded-md"
+          className="ml-2 p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white"
         >
           <option value="All">All</option>
           <option value="yes">Customized</option>

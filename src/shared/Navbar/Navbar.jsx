@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Providers/AuthProviders";
-import "./navbar.css";
+import DarkMode from "../DarkMode/DarkMode";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -78,7 +78,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"}>
-          <img className="w-40 hover:invert" src="/navlogo.png" alt="" />
+          <img className="w-40 hover:invert dark:invert dark:hover:invert-0" src="/navlogo.png" alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -87,6 +87,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end lg:flex gap-4 ">
+        <DarkMode></DarkMode>
         {user ? (
           <button
             onClick={handleLogOut}

@@ -8,9 +8,9 @@ const SendFeedback = () => {
   };
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-center justify-evenly mx-auto w-full min-h-screen  rounded-2xl font-nunito">
+      <div className="flex flex-col md:flex-row items-center justify-evenly mx-auto w-full min-h-screen dark:bg-gray-800 dark:text-white rounded-2xl font-nunito">
         <div className=" p-8 w-full sm:w-96 ">
-          <h2 className="text-5xl font-bold text-nowrap">Send Feedback</h2>
+          <h2 className="text-5xl font-bold dark:bg-gray-800 dark:text-white text-nowrap">Send Feedback</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block mb-2">Name :</label>
@@ -35,7 +35,7 @@ const SendFeedback = () => {
             <div className="mb-4">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium"
               >
                 Message
               </label>
@@ -56,15 +56,15 @@ const SendFeedback = () => {
         </div>
 
         <div className="md:w-1/2 md:pr-8 mb-6 p-2 space-x-10 ">
-          <img src="/footer.png" alt="" />
-          <p className="text-gray-700 leading-relaxed">
+          <img className="dark:invert" src="/footer.png" alt="" />
+          <p className=" leading-relaxed">
             We value your input! <br />
             Your feedback helps us enhance your experience with our Painting and
             Drawing platform. Whether you have suggestions for improvements,
             encounter technical issues, or simply want to share your thoughts,
             we&apos;re all ears.
           </p>
-          <p className="text-gray-700 leading-relaxed mt-4">
+          <p className=" leading-relaxed mt-4">
             Your perspective matters greatly to us as we strive to create a
             seamless and enjoyable environment for artists of all levels. Please
             take a moment to let us know how we&apos;re doing. Your comments,
