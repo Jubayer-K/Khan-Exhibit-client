@@ -48,29 +48,6 @@ const Register = () => {
         setRegisterError(error.message);
         errorToast("User creation Unsuccessful !");
       });
-
-    // createUser(email, password, name)
-    //   .then( result => {
-    //     console.log(result.user);
-    //     const user ={email};
-    //     fetch('http://localhost:5000/user',{
-    //       method:'POST',
-    //       headers:{
-    //         'content-type':'application/json'
-    //       },
-    //       body:JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //       console.log(data);
-    //     })
-    //     setSuccess("User created Successfully");
-    //     successToast();
-    //   })
-    //   .catch((error) => {
-    //     setRegisterError(error.message);
-    //     errorToast("User creation Unsuccessful !");
-    //   });
   };
   return (
     <div className=" flex flex-col lg:flex-row justify-center items-center mx-auto">

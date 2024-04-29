@@ -17,10 +17,22 @@ const routes = createBrowserRouter([
     element: <Root></Root>,
     errorElement:<Error></Error>,
     children: [
+      // {
+      //   path: "/",
+      //   element: <Home></Home>,
+      //   loader : () => fetch('http://localhost:5000/subcategory')
+      // },
       {
         path: "/",
         element: <Home></Home>,
-        loader : () => fetch('http://localhost:5000/subcategory')
+        loader: async () => {
+          const subcategoryPromise = fetch('http://localhost:5000/subcategory').then(res => res.json());
+          const addCraftPromise = fetch('http://localhost:5000/add-craft').then(res => res.json());
+      
+          const [subcategoryData, addCraftData] = await Promise.all([subcategoryPromise, addCraftPromise]);
+      
+          return { subcategoryData, addCraftData };
+        }
       },
       {
         path: "/login",
@@ -42,7 +54,6 @@ const routes = createBrowserRouter([
       {
         path: "/my-art",
         element: <PrivateRoutes><MyArt></MyArt></PrivateRoutes>,
-        loader : () => fetch('http://localhost:5000/add-craft')
       },
       {
         path: "my-art/update/:id",
@@ -56,6 +67,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/my-art/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      }, 
+      {
+        path: "/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
         loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
       }, 

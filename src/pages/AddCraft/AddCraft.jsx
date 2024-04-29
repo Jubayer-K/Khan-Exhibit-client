@@ -13,7 +13,7 @@ const AddCraft = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.user_name.value;
-    const email = form.user_email.value;
+    const userEmail = form.user_email.value;
     const itemName = form.item_name.value;
     const image = form.image.value;
     const subcategoryName = form.subcategory_name.value;
@@ -23,7 +23,7 @@ const AddCraft = () => {
     const customization = form.customization.value;
     const time = form.processing_time.value;
     const stock = form.stock_status.value;
-    const userEmail = user.email;
+    const email = user.email;
 
     const newCraft = {
       name,

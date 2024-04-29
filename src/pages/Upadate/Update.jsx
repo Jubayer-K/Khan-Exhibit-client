@@ -45,7 +45,6 @@ const Update = () => {
       time,
       stock,
     };
-    console.log(updatedCraft);
 
     fetch(`http://localhost:5000/add-craft/${_id}`, {
       method: "PUT",
