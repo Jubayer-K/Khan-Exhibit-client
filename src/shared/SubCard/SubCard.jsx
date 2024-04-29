@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { Fade } from "react-awesome-reveal";
 
 const SubCard = ({ subcategory }) => {
-  const { _id, itemName, image, subcategoryName } = subcategory;
+  const { image, subcategoryName } = subcategory;
+  // const category = "Landscape Painting";
   return (
     <Fade direction="down">
       <div>
@@ -17,7 +18,9 @@ const SubCard = ({ subcategory }) => {
               {subcategoryName}
             </div>
             <div className="py-2 px-3 bg-gray-400">
-              <Link to={`/subcategory/details/${_id}`}>
+              <Link
+                to={`/filter-category/${encodeURIComponent(subcategoryName)}`}
+              >
                 <button className="w-full glass bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
                   View Category
                 </button>

@@ -10,6 +10,7 @@ import AddCraft from "../pages/AddCraft/AddCraft";
 import MyArt from "../pages/MyArt/MyArt";
 import Update from "../pages/Upadate/Update";
 import Details from "../pages/Details/Details";
+import FilterCategory from "../pages/FIlterCategory/FilterCategory";
 
 const routes = createBrowserRouter([
   {
@@ -56,12 +57,47 @@ const routes = createBrowserRouter([
         element: <PrivateRoutes><MyArt></MyArt></PrivateRoutes>,
       },
       {
+        path: "/filter-category/:id",
+        element: <PrivateRoutes><FilterCategory></FilterCategory></PrivateRoutes>,
+        loader:({ params }) =>  fetch(`http://localhost:5000/crafts-by-category?category=${encodeURIComponent(params.id)}`)
+      },
+      {
         path: "my-art/update/:id",
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
         loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
       },
       {
         path: "/all-art/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Landscape Painting/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Oil Painting/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Charcoal Sketching/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Cartoon Drawing/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Classic Portrait/details/:id",
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
+        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+      },
+      {
+        path: "/filter-category/Watercolour Painting/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
         loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
       },

@@ -29,6 +29,7 @@ const AllArt = () => {
               <th>Name</th>
               <th>Price</th>
               <th>Subcategory</th>
+              <th>Stock</th>
             </tr>
           </thead>
           {crafts.map((craft, index) => (
@@ -40,9 +41,10 @@ const AllArt = () => {
                   ${craft.price} <span className="text-black">USD</span>
                 </td>
                 <td>{craft.subcategoryName}</td>
+                <td>{craft.stock}</td>
                 <th>
                   <Link to={`details/${craft._id}`}>
-                    <button className="btn ">View Details</button>
+                    <button className="btn glass bg-gray-400 ">View Details</button>
                   </Link>
                 </th>
               </tr>
