@@ -21,7 +21,7 @@ const AllArt = () => {
       </p>
       <hr />
       <div className="overflow-x-auto">
-        <table className="table dark:bg-gray-800 dark:text-white">
+        <table className="table text-gray-800 dark:bg-gray-800 dark:text-white">
           {/* head */}
           <thead className="text-3xl">
             <tr>
@@ -34,7 +34,7 @@ const AllArt = () => {
           </thead>
           {crafts.map((craft, index) => (
             <tbody key={craft._id}>
-              <tr className="hover:bg-base-200">
+              <tr className="hover:bg-gray-300 ">
                 <th>{index + 1}</th>
                 <td>{craft.itemName}</td>
                 <td className="text-green-700">

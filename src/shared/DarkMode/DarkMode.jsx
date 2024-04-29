@@ -25,7 +25,7 @@ const DarkMode = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
   return (
-    <div>
+    <div className="hidden md:block">
       <button onClick={handleTheme} className="btn btn-circle glass bg-gray-800 dark:bg-transparent text-white dark:text-white text-xl">
         {theme === "dark" ? (
           <CiLight></CiLight>

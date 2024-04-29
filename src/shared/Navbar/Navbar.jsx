@@ -89,24 +89,8 @@ const Navbar = () => {
       <div className="navbar-end lg:flex gap-4 ">
         <DarkMode></DarkMode>
         {user ? (
-          <button
-            onClick={handleLogOut}
-            className="btn glass hover:bg-red-950 hover:text-red-100 text-black rounded-3xl"
-          >
-            Log Out
-          </button>
-        ) : (
-          <Link
-            to={"/register"}
-            className="md:btn sm:btn-sm md:glass hover:bg-gray-700 p-1 hover:text-white text-black md:rounded-3xl rounded-xl content-center"
-          >
-            Register
-          </Link>
-        )}
-
-        {user ? (
           <div
-            className="avatar p-4 tooltip tooltip-left"
+            className="avatar p-4 tooltip tooltip-bottom"
             data-tip={user.displayName}
           >
             <div className="md:w-12 w-8 rounded-full">
@@ -119,6 +103,21 @@ const Navbar = () => {
             className="md:btn sm:btn-sm md:glass hover:bg-gray-700 p-1 hover:text-white text-black md:rounded-3xl rounded-xl content-center"
           >
             Log In
+          </Link>
+        )}
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="md:btn sm:btn-sm md:glass  hover:bg-red-950 hover:text-red-100 text-black md:rounded-3xl rounded-xl content-center"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link
+            to={"/register"}
+            className="md:btn sm:btn-sm md:glass hover:bg-gray-700 p-1 hover:text-white text-black md:rounded-3xl rounded-xl content-center"
+          >
+            Register
           </Link>
         )}
       </div>
