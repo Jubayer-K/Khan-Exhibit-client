@@ -17,7 +17,7 @@ const MyArtItems = ({ craft, crafts, setCrafts }) => {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/add-craft/${_id}`, {
+        fetch(`https://khan-exhibit-server.vercel.app/add-craft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -21,14 +21,14 @@ const routes = createBrowserRouter([
       // {
       //   path: "/",
       //   element: <Home></Home>,
-      //   loader : () => fetch('http://localhost:5000/subcategory')
+      //   loader : () => fetch('https://khan-exhibit-server.vercel.app/subcategory')
       // },
       {
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const subcategoryPromise = fetch('http://localhost:5000/subcategory').then(res => res.json());
-          const addCraftPromise = fetch('http://localhost:5000/add-craft').then(res => res.json());
+          const subcategoryPromise = fetch('https://khan-exhibit-server.vercel.app/subcategory').then(res => res.json());
+          const addCraftPromise = fetch('https://khan-exhibit-server.vercel.app/add-craft').then(res => res.json());
       
           const [subcategoryData, addCraftData] = await Promise.all([subcategoryPromise, addCraftPromise]);
       
@@ -46,7 +46,7 @@ const routes = createBrowserRouter([
       {
         path: "/all-art",
         element:<AllArt></AllArt>,
-        loader : () => fetch('http://localhost:5000/add-craft')
+        loader : () => fetch('https://khan-exhibit-server.vercel.app/add-craft')
       },
       {
         path: "/add-craft",
@@ -59,67 +59,67 @@ const routes = createBrowserRouter([
       {
         path: "/filter-category/:id",
         element: <PrivateRoutes><FilterCategory></FilterCategory></PrivateRoutes>,
-        loader:({ params }) =>  fetch(`http://localhost:5000/crafts-by-category?category=${encodeURIComponent(params.id)}`)
+        loader:({ params }) =>  fetch(`https://khan-exhibit-server.vercel.app/crafts-by-category?category=${encodeURIComponent(params.id)}`)
       },
       {
         path: "my-art/update/:id",
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/all-art/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Landscape Painting/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Oil Painting/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Charcoal Sketching/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Cartoon Drawing/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Classic Portrait/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/filter-category/Watercolour Painting/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       },
       {
         path: "/my-art/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       }, 
       {
         path: "/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/add-craft/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/add-craft/${params.id}`)
       }, 
       {
         path: "/subcategory/details/:id",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/subcategory/${params.id}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/subcategory/${params.id}`)
       }, 
       {
         path: "/subcategory/details/:subcategoryName",
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/subcategory/${params.subcategoryName}`)
+        loader : ({params}) => fetch(`https://khan-exhibit-server.vercel.app/subcategory/${params.subcategoryName}`)
       }, 
     ],
   },

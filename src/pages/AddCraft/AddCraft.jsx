@@ -40,7 +40,7 @@ const AddCraft = () => {
       userEmail
     };
 
-    fetch("http://localhost:5000/add-craft", {
+    fetch("https://khan-exhibit-server.vercel.app/add-craft", {
       method: "POST",
       headers: {
         "content-type": "application/json",

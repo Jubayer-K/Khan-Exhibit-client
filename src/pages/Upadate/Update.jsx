@@ -46,7 +46,7 @@ const Update = () => {
       stock,
     };
 
-    fetch(`http://localhost:5000/add-craft/${_id}`, {
+    fetch(`https://khan-exhibit-server.vercel.app/add-craft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
