@@ -16,6 +16,10 @@ Follow these steps to clone and set up the project locally:
 3. **Install Dependencies:**
    ```bash
    npm install
+   
+4. **To start the development server, run:**
+   ```bash
+   npm run dev
 
 Welcome to Khan Exhibit, your go-to destination for exploring and appreciating the world of Painting and Drawing. 
 
