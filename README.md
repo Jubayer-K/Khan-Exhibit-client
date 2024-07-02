@@ -1,8 +1,21 @@
 # Khan Exhibit  
 
-## Selected category:
+### Cloning the Repository
 
-# Painting and Drawing
+Follow these steps to clone and set up the project locally:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Jubayer-K/Khan-Exhibit-client.git
+
+
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd Khan-Exhibit-client
+
+3. **Install Dependencies:**
+   ```bash
+   npm install
 
 Welcome to Khan Exhibit, your go-to destination for exploring and appreciating the world of Painting and Drawing. 
 
